@@ -13,19 +13,22 @@
 ##对象：键值对的集合 K：空格 V，这个空格一定不能省略
 ##数组：一组按次序排列的值
 ##字面量：单个的不可再分的值 K： V 字符串不用加上引号，如果加上""，就会转义，如果''，不会转义
+
+
+##命令行参数： java -jar spring-02.jar --spring.profiles.active=dev;
+##虚拟机参数： -Dspring。profiles.active=dev;
 server:
   port: 8081
-
-#person:
-#  lastname: zhangsan
-#  age: 19
-#  boss: false
-#  birth: 2011/01/01
-#  maps: {k1: v1, k2: 12}
-#  list:
-#    -lisi
-#    -zhangsan
-#    -wangwu
-#  dog:
-#    name: xiaogou
-#    age: 3
+spring:
+  profiles:
+    active: prod
+---
+server:
+  port: 8083
+spring:
+  profiles: prod
+---
+server:
+  port: 8091
+spring:
+  profiles: dev
