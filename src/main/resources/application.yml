@@ -1,4 +1,4 @@
-#spirng使用一个全局配置文件
+#spirng使用一个全局配置文件******这是全局配置文件
 #修改SpringBoot默认配置的默认值 SpringBoot在底层都给我们配置好了
 #YAML YAML Ain't Markup Language 是一个标记语言 不是一个标记语言
 #以数据为中心，比xml、json等更适合做配置文件

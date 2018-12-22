@@ -2,6 +2,7 @@ package com.example.demo.domain;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 import javax.validation.constraints.Email;
@@ -14,6 +15,7 @@ import java.util.Map;
  * @ConfigurationProperties这个注解的作用：告诉springboot将本类中所有属性和配置文件中的绑定
  * 只有这个组件是容器中的组件，才能提供@ConfigurationProperties
  */
+@PropertySource(value={"classpath:person.properties"})//避免使用全局配置文件
 @Component
 //@ConfigurationProperties(prefix="person")支持JSR303数据校验
 public class Person {
