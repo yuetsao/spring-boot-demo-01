@@ -17,6 +17,11 @@
 
 ##命令行参数： java -jar spring-02.jar --spring.profiles.active=dev;
 ##虚拟机参数： -Dspring。profiles.active=dev;
+
+##spring boot 启动会扫描以下位置的application.properties 或者 application.yml文件作为springboot的默认配置文件
+##-file:./config/ -file:./ -classpath:/config -classpath:/ 优先级从高到低 可以通过spring.config.location来改变默认配置（等价于从硬盘绝对路径下）
+## 项目打包好以后，我们可以使用命令行参数的形式，启动项目的时候来指定配置文件的新位置，指定配置文件和默认加载的这些配置文件共同形成互补配置
+##配置文件的访问路径： server.context-path=/boot02 等价于启动时加上这个就会从这个地方读取配置文件
 server:
   port: 8081
 spring:
