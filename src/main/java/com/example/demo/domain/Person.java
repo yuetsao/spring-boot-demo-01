@@ -1,8 +1,10 @@
 package com.example.demo.domain;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+import javax.validation.constraints.Email;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -13,10 +15,21 @@ import java.util.Map;
  * 只有这个组件是容器中的组件，才能提供@ConfigurationProperties
  */
 @Component
-@ConfigurationProperties(prefix="person")
+//@ConfigurationProperties(prefix="person")支持JSR303数据校验
 public class Person {
+
+    /**
+     * <bean class="Person">
+     *     <property name="lastName" value="字面量 ${}#{spEL}"></property>
+     * </bean>
+     * 只能取得基本类型
+     */
+    @Email
+    @Value("${person.lastname}")
     private String lastname;
+    @Value("#{11*2}")
     private Integer age;
+    @Value("true")
     private Boolean boss;
     private Date birth;
     private Map<String, Object> maps;
