@@ -15,9 +15,9 @@ import java.util.Map;
  * @ConfigurationProperties这个注解的作用：告诉springboot将本类中所有属性和配置文件中的绑定
  * 只有这个组件是容器中的组件，才能提供@ConfigurationProperties
  */
-@PropertySource(value={"classpath:person.properties"})//避免使用全局配置文件
+//@PropertySource(value={"classpath:person.properties"})//避免使用全局配置文件
 @Component
-//@ConfigurationProperties(prefix="person")支持JSR303数据校验
+@ConfigurationProperties(prefix="person")//支持JSR303数据校验
 public class Person {
 
     /**
@@ -26,12 +26,12 @@ public class Person {
      * </bean>
      * 只能取得基本类型
      */
-    @Email
-    @Value("${person.lastname}")
+//    @Email
+//    @Value("${person.lastname}")
     private String lastname;
-    @Value("#{11*2}")
+//    @Value("#{11*2}")
     private Integer age;
-    @Value("true")
+//    @Value("true")
     private Boolean boss;
     private Date birth;
     private Map<String, Object> maps;
